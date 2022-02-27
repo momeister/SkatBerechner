@@ -24,7 +24,7 @@
                     android:paddingLeft="2dp"
                     android:paddingTop="2dp"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/skatbuben_1"
+                    android:src="@drawable/skatbuben_1_dark"
                     tools:ignore="MissingConstraints">
 
                 </androidx.constraintlayout.utils.widget.ImageFilterButton>
@@ -39,7 +39,7 @@
                     android:paddingLeft="2dp"
                     android:paddingTop="2dp"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/skatbuben_2">
+                    android:src="@drawable/skatbuben_2_dark">
 
                 </androidx.constraintlayout.utils.widget.ImageFilterButton>
 
@@ -62,7 +62,7 @@
                     android:paddingLeft="2dp"
                     android:paddingTop="2dp"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/skatbuben_3"
+                    android:src="@drawable/skatbuben_3_dark"
                     tools:ignore="MissingConstraints">
 
                 </androidx.constraintlayout.utils.widget.ImageFilterButton>
@@ -77,7 +77,7 @@
                     android:paddingLeft="2dp"
                     android:paddingTop="2dp"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/skatbuben_4">
+                    android:src="@drawable/skatbuben_4_dark">
 
                 </androidx.constraintlayout.utils.widget.ImageFilterButton>
 
