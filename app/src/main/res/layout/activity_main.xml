@@ -83,4 +83,13 @@
 
         </RelativeLayout>
 
+        <RelativeLayout
+            android:layout_width="146dp"
+            android:layout_height="326dp"
+            android:layout_marginStart="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/relativeLayout"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints"></RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -57,27 +57,28 @@ class BubenBereich {
         //1-Eichel, 2-Blatt, 3-Herz, 4-Schell
         if(clicked(x)) {
             var image = when(x){
-                1 -> R.drawable.skatbuben_1_dark
-                2 -> R.drawable.skatbuben_2_dark
-                3 -> R.drawable.skatbuben_3_dark
-                4 -> R.drawable.skatbuben_4_dark
-                else -> null
-            }
-            selectedCard.startAnimation(animationBubeOut)
-            if (image != null) {
-                selectedCard.setImageResource(image)
-            }
-
-        }else {
-            var image = when(x){
                 1 -> R.drawable.skatbuben_1
                 2 -> R.drawable.skatbuben_2
                 3 -> R.drawable.skatbuben_3
                 4 -> R.drawable.skatbuben_4
                 else -> null
             }
-
             selectedCard.startAnimation(animationBubeIn)
+            if (image != null) {
+                selectedCard.setImageResource(image)
+            }
+
+        }else {
+
+            var image = when(x){
+                1 -> R.drawable.skatbuben_1_dark
+                2 -> R.drawable.skatbuben_2_dark
+                3 -> R.drawable.skatbuben_3_dark
+                4 -> R.drawable.skatbuben_4_dark
+                else -> null
+            }
+
+            selectedCard.startAnimation(animationBubeOut)
             if (image != null) {
                 selectedCard.setImageResource(image)
             }
