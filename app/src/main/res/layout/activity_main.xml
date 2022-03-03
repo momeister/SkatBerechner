@@ -90,6 +90,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/relativeLayout"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints"></RelativeLayout>
+            tools:ignore="MissingConstraints">
+
+                <ImageButton
+                    android:id="@+id/EichelSpiel"
+                    android:layout_width="match_parent"
+                    android:layout_height="67dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginEnd="0dp"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/eichel_dark" />
+        </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
