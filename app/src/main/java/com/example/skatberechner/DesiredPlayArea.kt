@@ -1,6 +1,7 @@
 package com.example.skatberechner
 
 import android.content.Context
+import android.graphics.Color
 import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.ImageButton
@@ -9,7 +10,6 @@ class DesiredPlayArea {
 
     var context: Context
     var activity: MainActivity
-
     var spielGeklicked = arrayOf(
         arrayOf(1,2,3,4),
         arrayOf(0,0,0,0)
@@ -35,6 +35,7 @@ class DesiredPlayArea {
         val animationSpielIn = AnimationUtils.loadAnimation(context,R.anim.fade_in)
         val animationSpielOut = AnimationUtils.loadAnimation(context, R.anim.fade_out)
 
+        println("Ich bin in der 'Funktion")
         if(clicked(x)) {
             var image = when(x){
                 1 -> R.drawable.eichel
@@ -45,7 +46,9 @@ class DesiredPlayArea {
             }
             selectedCard.startAnimation(animationSpielIn)
             if (image != null) {
+                println("Ich war auch hier drin, ich weiß nur dann nicht was falsch ist")
                 selectedCard.setImageResource(image)
+                selectedCard.setBackgroundColor(Color.WHITE)
             }
 
         }else {
@@ -61,6 +64,7 @@ class DesiredPlayArea {
             selectedCard.startAnimation(animationSpielOut)
             if (image != null) {
                 selectedCard.setImageResource(image)
+                selectedCard.setBackgroundColor(Color.GRAY)
             }
 
         }

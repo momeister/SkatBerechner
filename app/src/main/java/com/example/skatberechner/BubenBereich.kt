@@ -18,6 +18,8 @@ class BubenBereich {
         this.activity = activity
         this.context = context
 
+        var desiredPlayArea = DesiredPlayArea(activity,context)
+
         val eichelBube = activity.findViewById<ImageButton>(R.id.EichelBubeFeld)
         val blattBube = activity.findViewById<ImageButton>(R.id.GruenerBubeFeld)
         val herzBube = activity.findViewById<ImageButton>(R.id.HerzBubeFeld)
