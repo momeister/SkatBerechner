@@ -21,11 +21,23 @@ class DesiredPlayArea {
         this.context = context
 
         val spielEichel = activity.findViewById<ImageButton>(R.id.EichelSpiel)
+        val spielBlatt = activity.findViewById<ImageButton>(R.id.BlattSpiel)
+        val spielHerz = activity.findViewById<ImageButton>(R.id.HerzSpiel)
+        val spielSchell = activity.findViewById<ImageButton>(R.id.SchellSpiel)
 
 
 
         spielEichel.setOnClickListener{
             animationSelectedGame(spielEichel,1)
+        }
+        spielBlatt.setOnClickListener {
+            animationSelectedGame(spielBlatt,2)
+        }
+        spielHerz.setOnClickListener {
+            animationSelectedGame(spielHerz,3)
+        }
+        spielSchell.setOnClickListener {
+            animationSelectedGame(spielSchell,4)
         }
 
     }
@@ -35,29 +47,26 @@ class DesiredPlayArea {
         val animationSpielIn = AnimationUtils.loadAnimation(context,R.anim.fade_in)
         val animationSpielOut = AnimationUtils.loadAnimation(context, R.anim.fade_out)
 
-        println("Ich bin in der 'Funktion")
         if(clicked(x)) {
             var image = when(x){
                 1 -> R.drawable.eichel
-                2 -> R.drawable.skatbuben_2
-                3 -> R.drawable.skatbuben_3
-                4 -> R.drawable.skatbuben_4
+                2 -> R.drawable.blatt
+                3 -> R.drawable.herz
+                4 -> R.drawable.schell
                 else -> null
             }
             selectedCard.startAnimation(animationSpielIn)
             if (image != null) {
-                println("Ich war auch hier drin, ich weiß nur dann nicht was falsch ist")
                 selectedCard.setImageResource(image)
                 selectedCard.setBackgroundColor(Color.WHITE)
             }
-
         }else {
 
             var image = when(x){
                 1 -> R.drawable.eichel_dark
-                2 -> R.drawable.skatbuben_2_dark
-                3 -> R.drawable.skatbuben_3_dark
-                4 -> R.drawable.skatbuben_4_dark
+                2 -> R.drawable.blatt_dark
+                3 -> R.drawable.herz_dark
+                4 -> R.drawable.schell_dark
                 else -> null
             }
 
@@ -66,19 +75,28 @@ class DesiredPlayArea {
                 selectedCard.setImageResource(image)
                 selectedCard.setBackgroundColor(Color.GRAY)
             }
-
         }
     }
 
     private fun clicked(Farbe:Int): Boolean {
 
         if (spielGeklicked[1][Farbe-1] == 0) {
+            //justOnGameOption()
             spielGeklicked[1][Farbe-1] = 1
             return true
 
         } else {
             spielGeklicked [1][Farbe-1] = 0
             return false
+        }
+    }
+
+    private fun justOnGameOption(){
+        var y = 99
+        for(i in 0..3){
+            if(spielGeklicked[1][i] == 1){
+                spielGeklicked[1][i] = 0
+            }
         }
     }
 

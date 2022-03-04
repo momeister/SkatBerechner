@@ -98,12 +98,57 @@
                     android:layout_height="67dp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginEnd="0dp"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginEnd="-1dp"
+                    android:background="#848484"
                     android:contentDescription="@string/app_name"
                     android:scaleType="fitCenter"
-                    android:background="#848484"
                     android:src="@drawable/eichel_dark"></androidx.constraintlayout.utils.widget.ImageFilterButton>
+
+                <androidx.constraintlayout.utils.widget.ImageFilterButton
+                    android:id="@+id/BlattSpiel"
+                    android:layout_width="match_parent"
+                    android:layout_height="67dp"
+                    android:layout_below="@+id/EichelSpiel"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginEnd="0dp"
+                    android:background="#848484"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/blatt_dark"></androidx.constraintlayout.utils.widget.ImageFilterButton>
+
+                <androidx.constraintlayout.utils.widget.ImageFilterButton
+                    android:id="@+id/HerzSpiel"
+                    android:layout_width="match_parent"
+                    android:layout_height="67dp"
+                    android:layout_below="@+id/BlattSpiel"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginEnd="1dp"
+                    android:background="#848484"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/herz_dark"></androidx.constraintlayout.utils.widget.ImageFilterButton>
+
+                <androidx.constraintlayout.utils.widget.ImageFilterButton
+                    android:id="@+id/SchellSpiel"
+                    android:layout_width="match_parent"
+                    android:layout_height="67dp"
+                    android:layout_below="@+id/HerzSpiel"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginEnd="0dp"
+                    android:background="#848484"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/schell_dark"></androidx.constraintlayout.utils.widget.ImageFilterButton>
         </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
