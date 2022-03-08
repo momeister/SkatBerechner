@@ -15,15 +15,20 @@ class DesiredPlayArea {
         arrayOf(0,0,0,0)
     )
 
+    val spielEichel: ImageButton
+    val spielBlatt: ImageButton
+    val spielHerz: ImageButton
+    val spielSchell: ImageButton
+
     constructor(activity: MainActivity, context: Context){
 
         this.activity = activity
         this.context = context
 
-        val spielEichel = activity.findViewById<ImageButton>(R.id.EichelSpiel)
-        val spielBlatt = activity.findViewById<ImageButton>(R.id.BlattSpiel)
-        val spielHerz = activity.findViewById<ImageButton>(R.id.HerzSpiel)
-        val spielSchell = activity.findViewById<ImageButton>(R.id.SchellSpiel)
+        spielEichel = activity.findViewById<ImageButton>(R.id.EichelSpiel)
+        spielBlatt = activity.findViewById<ImageButton>(R.id.BlattSpiel)
+        spielHerz = activity.findViewById<ImageButton>(R.id.HerzSpiel)
+        spielSchell = activity.findViewById<ImageButton>(R.id.SchellSpiel)
 
 
 
@@ -47,7 +52,38 @@ class DesiredPlayArea {
         val animationSpielIn = AnimationUtils.loadAnimation(context,R.anim.fade_in)
         val animationSpielOut = AnimationUtils.loadAnimation(context, R.anim.fade_out)
 
+        for(i in 0..3){
+            var image_dark = when(i+1){
+                1 -> R.drawable.eichel_dark
+                2 -> R.drawable.blatt_dark
+                3 -> R.drawable.herz_dark
+                4 -> R.drawable.schell_dark
+                else -> null
+            }
+            var selectedCard_delete = when(i+1){
+                1 -> spielEichel
+                2 -> spielBlatt
+                3 -> spielHerz
+                4 -> spielSchell
+                else -> null
+            }
+
+            if (selectedCard_delete != null) {
+                selectedCard_delete.startAnimation(animationSpielOut)
+            }
+            if (image_dark != null) {
+                if (selectedCard_delete != null) {
+                    selectedCard_delete.setImageResource(image_dark)
+                }
+                if (selectedCard_delete != null) {
+                    selectedCard_delete.setBackgroundColor(Color.GRAY)
+                }
+            }
+
+        }
+
         if(clicked(x)) {
+
             var image = when(x){
                 1 -> R.drawable.eichel
                 2 -> R.drawable.blatt
@@ -55,11 +91,13 @@ class DesiredPlayArea {
                 4 -> R.drawable.schell
                 else -> null
             }
+
             selectedCard.startAnimation(animationSpielIn)
             if (image != null) {
                 selectedCard.setImageResource(image)
                 selectedCard.setBackgroundColor(Color.WHITE)
             }
+
         }else {
 
             var image = when(x){
@@ -81,7 +119,7 @@ class DesiredPlayArea {
     private fun clicked(Farbe:Int): Boolean {
 
         if (spielGeklicked[1][Farbe-1] == 0) {
-            //justOnGameOption()
+            justOnGameOption()
             spielGeklicked[1][Farbe-1] = 1
             return true
 
@@ -92,11 +130,10 @@ class DesiredPlayArea {
     }
 
     private fun justOnGameOption(){
-        var y = 99
+
         for(i in 0..3){
-            if(spielGeklicked[1][i] == 1){
-                spielGeklicked[1][i] = 0
-            }
+            spielGeklicked[1][i] = 0
+
         }
     }
 
