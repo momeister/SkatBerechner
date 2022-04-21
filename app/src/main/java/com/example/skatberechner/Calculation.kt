@@ -59,6 +59,11 @@ class Calculation {
         gamex = detextion_Gamemode()
 
         var result = mitx * gamex
+
+        if(gamex == 1){
+            return "--"
+        }
+
         return result.toString()
     }
 
