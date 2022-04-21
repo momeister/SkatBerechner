@@ -14,12 +14,20 @@ class BubenBereich : Update_Changes {
     var context: Context
     var activity: MainActivity
 
+    private var statusClass: StatusClass
+    private var calc: com.example.skatberechner.Calculation
+
     constructor(activity: MainActivity, context: Context){
 
         this.activity = activity
         this.context = context
 
-        var desiredPlayArea = DesiredPlayArea(activity,context)
+        var statusClass = StatusClass()
+        this.statusClass = statusClass
+
+        statusClass.set_Buben_Matrix(kartegeklickt)
+
+        var desiredPlayArea = DesiredPlayArea(activity,context, statusClass)
 
         val eichelBube = activity.findViewById<ImageButton>(R.id.EichelBubeFeld)
         val blattBube = activity.findViewById<ImageButton>(R.id.GruenerBubeFeld)
@@ -40,16 +48,22 @@ class BubenBereich : Update_Changes {
             animationSelectedBube(schellBube,4)
         }
 
+        var calc = com.example.skatberechner.Calculation(activity, statusClass)
+        this.calc = calc
     }
 
     private fun clicked(Farbe:Int): Boolean {
 
         if (kartegeklickt[1][Farbe-1] == 0) {
             kartegeklickt[1][Farbe-1] = 1
+            statusClass.set_Buben_Matrix(kartegeklickt)
+            calc.createTextView()
             return true
 
         } else {
             kartegeklickt [1][Farbe-1] = 0
+            statusClass.set_Buben_Matrix(kartegeklickt)
+            calc.createTextView()
             return false
         }
     }
@@ -90,6 +104,8 @@ class BubenBereich : Update_Changes {
         }
     }
 
+    override var Bubencount: Int = 5
+
     override fun get_count_Bubes(): Int {
         TODO("Not yet implemented")
         var mitZahl = 0
@@ -114,6 +130,14 @@ class BubenBereich : Update_Changes {
     }
 
     override fun get_gamemode(): Int {
+        TODO("Not yet implemented")
+    }
+
+    override fun set_count_Bubes(): Int {
+        TODO("Not yet implemented")
+    }
+
+    override fun set_gamemode(): Int {
         TODO("Not yet implemented")
     }
 

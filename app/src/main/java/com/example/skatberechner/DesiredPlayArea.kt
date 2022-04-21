@@ -6,7 +6,7 @@ import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.ImageButton
 
-class DesiredPlayArea : Update_Changes{
+class DesiredPlayArea{
 
     var context: Context
     var activity: MainActivity
@@ -20,10 +20,18 @@ class DesiredPlayArea : Update_Changes{
     val spielHerz: ImageButton
     val spielSchell: ImageButton
 
-    constructor(activity: MainActivity, context: Context){
+    private var statusClass: StatusClass
+    private var calc : Calculation
+
+    constructor(activity: MainActivity, context: Context, statusClass: StatusClass){
 
         this.activity = activity
         this.context = context
+
+        //var statusClass = StatusClass()
+        this.statusClass = statusClass
+
+        statusClass.set_Gamemode_Matrix(spielGeklicked)
 
         spielEichel = activity.findViewById<ImageButton>(R.id.EichelSpiel)
         spielBlatt = activity.findViewById<ImageButton>(R.id.BlattSpiel)
@@ -44,6 +52,9 @@ class DesiredPlayArea : Update_Changes{
         spielSchell.setOnClickListener {
             animationSelectedGame(spielSchell,4)
         }
+
+        var calc = Calculation(activity, statusClass)
+        this.calc = calc
 
     }
 
@@ -122,10 +133,14 @@ class DesiredPlayArea : Update_Changes{
         if (spielGeklicked[1][Farbe-1] == 0) {
             justOnGameOption()
             spielGeklicked[1][Farbe-1] = 1
+            statusClass.set_Gamemode_Matrix(spielGeklicked)
+            calc.createTextView()
             return true
 
         } else {
             spielGeklicked [1][Farbe-1] = 0
+            statusClass.set_Gamemode_Matrix(spielGeklicked)
+            calc.createTextView()
             return false
         }
     }
@@ -136,19 +151,6 @@ class DesiredPlayArea : Update_Changes{
             spielGeklicked[1][i] = 0
 
         }
-    }
-
-    override fun get_count_Bubes(): Int {
-        TODO("Not yet implemented")
-    }
-
-    override fun get_gamemode(): Int {
-        for(i in 0..3){
-            if(spielGeklicked[i][1] == 1){
-                return i
-            }
-        }
-        return 99
     }
 
 }
