@@ -3,8 +3,9 @@ package com.example.skatberechner
 import android.content.Context
 import android.view.animation.AnimationUtils
 import android.widget.ImageButton
+import com.example.skatberechner.Calculation as Calculation1
 
-class BubenBereich {
+class BubenBereich : Update_Changes {
 
     var kartegeklickt = arrayOf(
         arrayOf(1,2,3,4),
@@ -38,6 +39,7 @@ class BubenBereich {
         schellBube.setOnClickListener {
             animationSelectedBube(schellBube,4)
         }
+
     }
 
     private fun clicked(Farbe:Int): Boolean {
@@ -86,6 +88,33 @@ class BubenBereich {
             }
 
         }
+    }
+
+    override fun get_count_Bubes(): Int {
+        TODO("Not yet implemented")
+        var mitZahl = 0
+
+        for(i in 0..3){
+            if(kartegeklickt[0][1] == 1){
+                if(kartegeklickt[i][1] == 1){
+                    mitZahl++
+                }else{
+                    break
+                }
+            }else{
+                if(kartegeklickt[i][1] == 0){
+                    mitZahl++
+                }else{
+                    break
+                }
+            }
+        }
+
+        return mitZahl
+    }
+
+    override fun get_gamemode(): Int {
+        TODO("Not yet implemented")
     }
 
 }

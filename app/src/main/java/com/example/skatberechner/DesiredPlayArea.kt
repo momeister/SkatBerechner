@@ -6,7 +6,7 @@ import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.ImageButton
 
-class DesiredPlayArea {
+class DesiredPlayArea : Update_Changes{
 
     var context: Context
     var activity: MainActivity
@@ -118,6 +118,7 @@ class DesiredPlayArea {
 
     private fun clicked(Farbe:Int): Boolean {
 
+
         if (spielGeklicked[1][Farbe-1] == 0) {
             justOnGameOption()
             spielGeklicked[1][Farbe-1] = 1
@@ -135,6 +136,19 @@ class DesiredPlayArea {
             spielGeklicked[1][i] = 0
 
         }
+    }
+
+    override fun get_count_Bubes(): Int {
+        TODO("Not yet implemented")
+    }
+
+    override fun get_gamemode(): Int {
+        for(i in 0..3){
+            if(spielGeklicked[i][1] == 1){
+                return i
+            }
+        }
+        return 99
     }
 
 }
