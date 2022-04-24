@@ -91,10 +91,14 @@ class Calculation {
         while (Gamemode_Matrix[1][i] == 0) {
             gamex--
             i++
-            if(i == 4){
+            if(i == 5){
                 gamex = 1
                 break
             }
+        }
+
+        if(gamex == 8){
+            gamex = 24
         }
 
         return gamex

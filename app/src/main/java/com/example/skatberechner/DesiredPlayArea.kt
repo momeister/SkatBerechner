@@ -11,14 +11,16 @@ class DesiredPlayArea{
     var context: Context
     var activity: MainActivity
     var spielGeklicked = arrayOf(
-        arrayOf(1,2,3,4),
-        arrayOf(0,0,0,0)
+        arrayOf(1,2,3,4,5,6),
+        arrayOf(0,0,0,0,0,0)
     )
 
     val spielEichel: ImageButton
     val spielBlatt: ImageButton
     val spielHerz: ImageButton
     val spielSchell: ImageButton
+    val spielGrand: ImageButton
+    val spielNull: ImageButton
 
     private var statusClass: StatusClass
     private var calc : Calculation
@@ -28,7 +30,6 @@ class DesiredPlayArea{
         this.activity = activity
         this.context = context
 
-        //var statusClass = StatusClass()
         this.statusClass = statusClass
 
         statusClass.set_Gamemode_Matrix(spielGeklicked)
@@ -38,6 +39,8 @@ class DesiredPlayArea{
         spielHerz = activity.findViewById<ImageButton>(R.id.HerzSpiel)
         spielSchell = activity.findViewById<ImageButton>(R.id.SchellSpiel)
 
+        spielGrand = activity.findViewById<ImageButton>(R.id.GrandeSpiel)
+        spielNull = activity.findViewById<ImageButton>(R.id.NullSpiel)
 
 
         spielEichel.setOnClickListener{
@@ -53,6 +56,14 @@ class DesiredPlayArea{
             animationSelectedGame(spielSchell,4)
         }
 
+        spielGrand.setOnClickListener {
+            animationSelectedGame(spielGrand,5)
+        }
+        spielNull.setOnClickListener {
+            animationSelectedGame(spielNull, 6)
+        }
+
+
         var calc = Calculation(activity, statusClass)
         this.calc = calc
 
@@ -63,12 +74,14 @@ class DesiredPlayArea{
         val animationSpielIn = AnimationUtils.loadAnimation(context,R.anim.fade_in)
         val animationSpielOut = AnimationUtils.loadAnimation(context, R.anim.fade_out)
 
-        for(i in 0..3){
+        for(i in 0..5){
             var image_dark = when(i+1){
                 1 -> R.drawable.eichel_dark
                 2 -> R.drawable.blatt_dark
                 3 -> R.drawable.herz_dark
                 4 -> R.drawable.schell_dark
+                5 -> R.drawable.grand_dunkel
+                6 -> R.drawable.null_dunkel
                 else -> null
             }
             var selectedCard_delete = when(i+1){
@@ -76,6 +89,8 @@ class DesiredPlayArea{
                 2 -> spielBlatt
                 3 -> spielHerz
                 4 -> spielSchell
+                5 -> spielGrand
+                6 -> spielNull
                 else -> null
             }
 
@@ -100,6 +115,8 @@ class DesiredPlayArea{
                 2 -> R.drawable.blatt
                 3 -> R.drawable.herz
                 4 -> R.drawable.schell
+                5 -> R.drawable.grand
+                6 -> R.drawable.null_game
                 else -> null
             }
 
@@ -116,6 +133,8 @@ class DesiredPlayArea{
                 2 -> R.drawable.blatt_dark
                 3 -> R.drawable.herz_dark
                 4 -> R.drawable.schell_dark
+                5 -> R.drawable.grand_dunkel
+                6 -> R.drawable.null_dunkel
                 else -> null
             }
 
@@ -147,7 +166,7 @@ class DesiredPlayArea{
 
     private fun justOnGameOption(){
 
-        for(i in 0..3){
+        for(i in 0..5){
             spielGeklicked[1][i] = 0
 
         }
