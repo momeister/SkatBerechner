@@ -28,6 +28,7 @@ class BubenBereich : Update_Changes {
         statusClass.set_Buben_Matrix(kartegeklickt)
 
         var desiredPlayArea = DesiredPlayArea(activity,context, statusClass)
+        var ansage = Ansage(activity,context,statusClass)
 
         val eichelBube = activity.findViewById<ImageButton>(R.id.EichelBubeFeld)
         val blattBube = activity.findViewById<ImageButton>(R.id.GruenerBubeFeld)

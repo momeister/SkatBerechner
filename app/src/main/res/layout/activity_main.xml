@@ -177,7 +177,7 @@
                     android:background="#848484"
                     android:contentDescription="@string/app_name"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/null_dunkel"></androidx.constraintlayout.utils.widget.ImageFilterButton>
+                    android:src="@drawable/null_game_dunkel"></androidx.constraintlayout.utils.widget.ImageFilterButton>
 
         </RelativeLayout>
 
@@ -192,6 +192,7 @@
             app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
 
         <RelativeLayout
+            android:id="@+id/relativeLayout3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="239dp"
@@ -201,25 +202,23 @@
             tools:layout_editor_absoluteX="59dp">
 
                 <androidx.constraintlayout.utils.widget.ImageFilterButton
-                    android:id="@+id/NullSpiel"
+                    android:id="@+id/KeineAnsage"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:layout_below="@+id/GrandeSpiel"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="2dp"
                     android:layout_marginTop="18dp"
                     android:layout_marginEnd="295dp"
-                    android:background="#848484"
+                    android:background="#ffffff"
                     android:contentDescription="@string/app_name"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/null_dunkel"></androidx.constraintlayout.utils.widget.ImageFilterButton>
+                    android:src="@drawable/ansage_keine"></androidx.constraintlayout.utils.widget.ImageFilterButton>
 
                 <androidx.constraintlayout.utils.widget.ImageFilterButton
-                    android:id="@+id/NullSpiel"
+                    android:id="@+id/HandAnsage"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:layout_below="@+id/GrandeSpiel"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="131dp"
@@ -228,7 +227,74 @@
                     android:background="#848484"
                     android:contentDescription="@string/app_name"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/null_dunkel"></androidx.constraintlayout.utils.widget.ImageFilterButton>
+                    android:src="@drawable/ansage_hand_dunkel"></androidx.constraintlayout.utils.widget.ImageFilterButton>
+
+                <androidx.constraintlayout.utils.widget.ImageFilterButton
+                    android:id="@+id/OuverteAnsage"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="286dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginEnd="0dp"
+                    android:background="#848484"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ansage_ouvert_dunkel"></androidx.constraintlayout.utils.widget.ImageFilterButton>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="408dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="28dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout3">
+
+                <androidx.constraintlayout.utils.widget.ImageFilterButton
+                    android:id="@+id/SchneiderAnsage"
+                    android:layout_width="116dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginEnd="292dp"
+                    android:background="#848484"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/schneider_ansage_dunkel"
+                    tools:layout_editor_absoluteX="30dp"
+                    tools:layout_editor_absoluteY="444dp"></androidx.constraintlayout.utils.widget.ImageFilterButton>
+
+                <androidx.constraintlayout.utils.widget.ImageFilterButton
+                    android:id="@+id/SchwarzAnsage"
+                    android:layout_width="141dp"
+                    android:layout_height="match_parent"
+
+
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="132dp"
+                    android:background="#848484"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/schwarz_ansage_dunkel"></androidx.constraintlayout.utils.widget.ImageFilterButton>
+
+                <androidx.constraintlayout.utils.widget.ImageFilterButton
+                    android:id="@+id/AnsageAnsage"
+                    android:layout_width="123dp"
+                    android:layout_height="match_parent"
+
+
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="0dp"
+                    android:background="#848484"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ansage_angesagt_dunkel"></androidx.constraintlayout.utils.widget.ImageFilterButton>
 
 
         </RelativeLayout>
