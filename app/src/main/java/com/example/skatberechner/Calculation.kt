@@ -20,15 +20,16 @@ class Calculation {
         arrayOf(0,0,0,0)
     )
 
+    private var Ansage_Matrix =  arrayOf(
+        arrayOf(0,0,0,0),
+        arrayOf(0,0,0,0)
+    )
+
     constructor(activity: MainActivity, statusClass: StatusClass){
         this.activity = activity
         this.statusClass = statusClass
 
         createTextView()
-    }
-
-    fun update_Reiz_Number(){
-
     }
 
     private fun showReizNumber(textView: TextView){
@@ -46,9 +47,11 @@ class Calculation {
 
         Buben_Matrix = statusClass.get_Buben_Matrix()
         Gamemode_Matrix = statusClass.get_Gamemode_Matrix()
+        Ansage_Matrix = statusClass.get_Ansage_Matrix()
 
         var mitx : Int = 0
         var gamex:Int = 8
+        var ansa: Int = 1
 
         if(Buben_Matrix[1][0] == 1){
             mitx = detection_Buben(1)
@@ -57,8 +60,9 @@ class Calculation {
         }
 
         gamex = detextion_Gamemode()
+        ansa = detextion_Ansage()
 
-        var result = mitx * gamex
+        var result = mitx * (gamex+ansa)
 
         if(gamex == 1){
             return "--"
@@ -104,10 +108,29 @@ class Calculation {
         return gamex
     }
 
-    private fun set_Buben_checked(bubenchecked : Array<Array<Int>>){
+    //Errechnet Ansage
+    //Output für Multiplikation
+    private fun detextion_Ansage():Int{
 
+        //Was wurde ausgewählt (Außer Angesagt)
+        for (i in 0..4){
+            if(Ansage_Matrix[1][i] == 1){
+                var ausgabe = when(i){
+                    0 -> 0
+                    1 -> 1
+                    2 -> 6
+                    3 -> 1
+                    4 -> 2
+                    else -> 0
+                }
+                return ausgabe
+            }else{
+                continue
+            }
+        }
+
+        return 1
     }
-
 
 
 }

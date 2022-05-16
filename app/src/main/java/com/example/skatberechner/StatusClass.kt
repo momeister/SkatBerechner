@@ -12,8 +12,8 @@ class StatusClass {
     )
 
     private var AnsageMatrix : Array<Array<Int>> = arrayOf(
-        arrayOf(0,0,0,0),
-        arrayOf(0,0,0,0)
+        arrayOf(0,0,0,0,0,0),
+        arrayOf(0,0,0,0,0,0)
     )
 
     fun get_Buben_Matrix() : Array<Array<Int>>{
@@ -21,10 +21,6 @@ class StatusClass {
     }
     fun set_Buben_Matrix(BubenMatrix: Array<Array<Int>>){
         this.BubenMatrix = BubenMatrix
-    }
-
-    fun get_Buben_Matrix_excactly(x:Int,y:Int) : Int{
-        return BubenMatrix[x][y]
     }
 
     fun get_Gamemode_Matrix() : Array<Array<Int>>{

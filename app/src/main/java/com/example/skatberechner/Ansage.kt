@@ -10,8 +10,8 @@ class Ansage {
 
     var ansagegeklickt = arrayOf(
         //1: keine 2:Hand 3: Ouvert 4: Schneider 5: Schwarz
-        arrayOf(1,2,3,4,5),
-        arrayOf(1,0,0,0,0)
+        arrayOf(1,2,3,4,5,6),
+        arrayOf(1,0,0,0,0,6)
     )
 
     var activity: MainActivity
@@ -24,6 +24,7 @@ class Ansage {
     var ansageOuvert: ImageButton
     var ansageSchneider: ImageButton
     var ansageSchwarz: ImageButton
+    var angesagtangesagt: ImageButton
 
     constructor(activity: MainActivity, context: Context, statusClass: StatusClass){
         this.activity = activity
@@ -35,6 +36,7 @@ class Ansage {
         ansageOuvert = activity.findViewById<ImageButton>(R.id.OuverteAnsage)
         ansageSchneider = activity.findViewById<ImageButton>(R.id.SchneiderAnsage)
         ansageSchwarz = activity.findViewById<ImageButton>(R.id.SchwarzAnsage)
+        angesagtangesagt = activity.findViewById(R.id.AnsageAnsage)
 
         ansageKeine.setOnClickListener {
             animationSelectedAnsage(ansageKeine,1)
@@ -54,6 +56,10 @@ class Ansage {
             animationSelectedAnsage(ansageSchwarz,5)
         }
 
+        angesagtangesagt.setOnClickListener {
+            animationSelectedAnsage(angesagtangesagt,6)
+        }
+
         var calc = Calculation(activity, statusClass)
         this.calc = calc
     }
@@ -62,13 +68,15 @@ class Ansage {
         val animationAnsageIn = AnimationUtils.loadAnimation(context,R.anim.fade_in)
         val animationAnsageOut = AnimationUtils.loadAnimation(context, R.anim.fade_out)
 
-        for(i in 0..4){
+        for(i in 0..5){
             var image_dark = when(i+1){
                 1 -> R.drawable.ansage_keine_dunkel
                 2 -> R.drawable.ansage_hand_dunkel
                 3 -> R.drawable.ansage_ouvert_dunkel
                 4 -> R.drawable.schneider_ansage_dunkel
                 5 -> R.drawable.schwarz_ansage_dunkel
+                6 -> R.drawable.ansage_angesagt_dunkel
+
                 else -> null
             }
             var selectedCard_delete = when(i+1){
@@ -77,6 +85,7 @@ class Ansage {
                 3 -> ansageOuvert
                 4 -> ansageSchneider
                 5 -> ansageSchwarz
+                6 -> angesagtangesagt
                 else -> null
             }
 
@@ -102,6 +111,7 @@ class Ansage {
                 3 -> R.drawable.ansage_ouvert
                 4 -> R.drawable.schneider_ansage
                 5 -> R.drawable.schwarz_ansage
+                6 -> R.drawable.ansage_angesagt
                 else -> null
             }
             selectedCart.startAnimation(animationAnsageIn)
@@ -116,6 +126,7 @@ class Ansage {
                 3 -> R.drawable.ansage_ouvert_dunkel
                 4 -> R.drawable.schneider_ansage_dunkel
                 5 -> R.drawable.schwarz_ansage_dunkel
+                6 -> R.drawable.ansage_angesagt_dunkel
                 else -> null
             }
 
@@ -145,7 +156,7 @@ class Ansage {
     }
 
     private fun justOnGameOption(){
-        for (i in 0..4){
+        for (i in 0..5){
             ansagegeklickt[1][i]=0
         }
     }
