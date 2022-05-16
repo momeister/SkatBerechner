@@ -86,7 +86,7 @@ class Ansage {
 
         angesagtangesagt.setOnClickListener {
             //animationSelectedAnsage(angesagtangesagt,6)
-            if(statusAngesagt <1){
+            if(statusAngesagt < 1){
                 statusAngesagt++
                 angesagt(angesagtangesagt)
             }else{
@@ -116,6 +116,7 @@ class Ansage {
             selectedCart.setImageResource(image)
         }
 
+        //statusClass.set_Ansage(spielmodusMatrix[2][1])
         statusClass.set_Ansage_Matrix(spielmodusMatrix)
         calc.createTextView()
 
@@ -135,6 +136,7 @@ class Ansage {
             selectedCart.setImageResource(image)
         }
 
+        //statusClass.set_Ansage(spielmodusMatrix[2][1])
         statusClass.set_Ansage_Matrix(spielmodusMatrix)
         calc.createTextView()
     }
@@ -152,6 +154,7 @@ class Ansage {
             selectedCart.setImageResource(image)
         }
 
+        //statusClass.set_Ansage(spielmodusMatrix[2][1])
         statusClass.set_Ansage_Matrix(spielmodusMatrix)
         calc.createTextView()
     }

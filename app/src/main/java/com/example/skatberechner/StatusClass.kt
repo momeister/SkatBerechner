@@ -16,6 +16,8 @@ class StatusClass {
         arrayOf(0,0,0,0,0,0)
     )
 
+    private var angesagt = 0
+
     fun get_Buben_Matrix() : Array<Array<Int>>{
         return BubenMatrix
     }
@@ -35,6 +37,12 @@ class StatusClass {
     }
     fun set_Ansage_Matrix(AnsageMatrix : Array<Array<Int>>){
         this.AnsageMatrix = AnsageMatrix
+    }
+    fun get_Ansage():Int{
+        return angesagt
+    }
+    fun set_Ansage(angesagt:Int){
+        this.angesagt = angesagt
     }
 
 }

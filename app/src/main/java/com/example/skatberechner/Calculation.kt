@@ -21,9 +21,11 @@ class Calculation {
     )
 
     private var Ansage_Matrix =  arrayOf(
-        arrayOf(0,0,0,0),
-        arrayOf(0,0,0,0)
+        arrayOf(0,0,0,0,0),
+        arrayOf(0,0,0,0,0)
     )
+
+    private var angesagt = 0
 
     constructor(activity: MainActivity, statusClass: StatusClass){
         this.activity = activity
@@ -83,7 +85,8 @@ class Calculation {
         }
 
 //angesagt
-        var x = Ansage_Matrix[-1][1]
+        var x = statusClass.get_Ansage()
+
         if (x == 1 && (wert != 6 && wert != 0)){
             if (wert != null) {
                 wert = wert*2
