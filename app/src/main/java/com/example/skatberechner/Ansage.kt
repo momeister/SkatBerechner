@@ -21,13 +21,14 @@ class Ansage {
 
     var ansageKeine: ImageButton
     var ansageHand: ImageButton
-    var ansageOuvert: ImageButton
+    //var ansageOuvert: ImageButton
     //var ansageSchneider: ImageButton
     //var ansageSchwarz: ImageButton
     var angesagtangesagt: ImageButton
 
     var statusKeineSchneiderSchwarz: Int = 0
     var statusHandOuvert: Int = 0
+    var statusAngesagt: Int = 0
 
     constructor(activity: MainActivity, context: Context, statusClass: StatusClass){
         this.activity = activity
@@ -36,14 +37,14 @@ class Ansage {
 
         ansageKeine = activity.findViewById<ImageButton>(R.id.KeineAnsage)
         ansageHand = activity.findViewById<ImageButton>(R.id.HandAnsage)
-        ansageOuvert = activity.findViewById<ImageButton>(R.id.OuverteAnsage)
+        //ansageOuvert = activity.findViewById<ImageButton>(R.id.OuverteAnsage)
         //ansageSchneider = activity.findViewById<ImageButton>(R.id.SchneiderAnsage)
         //ansageSchwarz = activity.findViewById<ImageButton>(R.id.SchwarzAnsage)
         angesagtangesagt = activity.findViewById(R.id.AnsageAnsage)
 
         ansageKeine.setOnClickListener {
             //animationSelectedAnsage(ansageKeine,1)
-            if(statusKeineSchneiderSchwarz <2){
+            if(statusKeineSchneiderSchwarz <3){
                 statusKeineSchneiderSchwarz++
                 keineSchneiderSchwarz(ansageKeine)
             }else{
@@ -54,7 +55,7 @@ class Ansage {
 
         ansageHand.setOnClickListener {
             //animationSelectedAnsage(ansageHand,2)
-            if(statusHandOuvert < 2){
+            if(statusHandOuvert < 1){
                 statusHandOuvert++
                 handOuvert(ansageHand)
             }else{
@@ -63,9 +64,11 @@ class Ansage {
             }
         }
 
-        ansageOuvert.setOnClickListener {
+      /*  ansageOuvert.setOnClickListener {
             animationSelectedAnsage(ansageOuvert,3)
         }
+
+       */
        /* ansageSchneider.setOnClickListener {
             animationSelectedAnsage(ansageSchneider,4)
         }
@@ -76,7 +79,16 @@ class Ansage {
         */
 
         angesagtangesagt.setOnClickListener {
-            animationSelectedAnsage(angesagtangesagt,6)
+            //animationSelectedAnsage(angesagtangesagt,6)
+            if(statusAngesagt <1){
+                statusAngesagt++
+                angesagt(angesagtangesagt)
+            }else{
+                statusAngesagt = 0
+                angesagt(angesagtangesagt)
+            }
+
+
         }
 
         var calc = Calculation(activity, statusClass)
@@ -88,6 +100,7 @@ class Ansage {
             0 -> R.drawable.ansage_keine
             1 -> R.drawable.schneider_ansage
             2 -> R.drawable.schwarz_ansage
+            3 -> R.drawable.ansage_ouvert
             else -> null
         }
 
@@ -100,7 +113,7 @@ class Ansage {
         var image = when(statusHandOuvert){
             0 -> R.drawable.ansage_hand_dunkel
             1 -> R.drawable.ansage_hand
-            2 -> R.drawable.ansage_ouvert
+            //2 -> R.drawable.ansage_ouvert
             else -> null
         }
 
@@ -109,6 +122,17 @@ class Ansage {
         }
     }
 
+    private fun angesagt(selectedCart: ImageButton){
+        var image = when(statusAngesagt){
+            0 -> R.drawable.ansage_angesagt_dunkel
+            1 -> R.drawable.ansage_angesagt
+            else -> null
+        }
+        if (image != null){
+            selectedCart.setImageResource(image)
+        }
+    }
+/*
     private fun animationSelectedAnsage(selectedCart: ImageButton, x:Int){
         val animationAnsageIn = AnimationUtils.loadAnimation(context,R.anim.fade_in)
         val animationAnsageOut = AnimationUtils.loadAnimation(context, R.anim.fade_out)
@@ -127,7 +151,7 @@ class Ansage {
             var selectedCard_delete = when(i+1){
                 1 -> ansageKeine
                 2 -> ansageHand
-                3 -> ansageOuvert
+                //3 -> ansageOuvert
                 //4 -> ansageSchneider
                 //5 -> ansageSchwarz
                 6 -> angesagtangesagt
@@ -153,7 +177,7 @@ class Ansage {
             var image = when(x){
                 1 -> R.drawable.ansage_keine
                 2 -> R.drawable.ansage_hand
-                3 -> R.drawable.ansage_ouvert
+                //3 -> R.drawable.ansage_ouvert
                 //4 -> R.drawable.schneider_ansage
                 //5 -> R.drawable.schwarz_ansage
                 6 -> R.drawable.ansage_angesagt
@@ -168,7 +192,7 @@ class Ansage {
             var image = when(x){
                 1 -> R.drawable.ansage_keine_dunkel
                 2 -> R.drawable.ansage_hand_dunkel
-                3 -> R.drawable.ansage_ouvert_dunkel
+                //3 -> R.drawable.ansage_ouvert_dunkel
                 //4 -> R.drawable.schneider_ansage_dunkel
                 //5 -> R.drawable.schwarz_ansage_dunkel
                 6 -> R.drawable.ansage_angesagt_dunkel
@@ -182,6 +206,8 @@ class Ansage {
         }
 
     }
+
+ */
 
     //Setzt Matrix auf das, was geklickt wurde + übergibt statusClasse + Aktuallisiert TextView
     private fun clicked(x: Int): Boolean{
