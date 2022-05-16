@@ -9,9 +9,15 @@ import android.widget.ImageButton
 class Ansage {
 
     var ansagegeklickt = arrayOf(
-        //1: keine 2:Hand 3: Ouvert 4: Schneider 5: Schwarz
+        //1: keine 2:Hand 3: Ouvert 4: Schneider 5: Schwarz 6: Angesagt
         arrayOf(1,2,3,4,5,6),
         arrayOf(1,0,0,0,0,6)
+    )
+
+    //1: 0=keine , 1 = Schneider , 2 = Schwarz , 3 = Ouvert ; 2: 0 = nicht Hand, 1 = Hand; 3: 0 = nicht angesagt, 1 = angesagt; 4: weil Bugfix ?
+    var spielmodusMatrix = arrayOf(
+        arrayOf(1,2,3,4),
+        arrayOf(0,0,0,0)
     )
 
     var activity: MainActivity
@@ -104,9 +110,15 @@ class Ansage {
             else -> null
         }
 
+        spielmodusMatrix[0][1] = statusKeineSchneiderSchwarz
+
         if(image != null){
             selectedCart.setImageResource(image)
         }
+
+        statusClass.set_Ansage_Matrix(spielmodusMatrix)
+        calc.createTextView()
+
     }
 
     private fun handOuvert(selectedCart: ImageButton){
@@ -117,9 +129,14 @@ class Ansage {
             else -> null
         }
 
+        spielmodusMatrix[1][1] = statusHandOuvert
+
         if(image != null){
             selectedCart.setImageResource(image)
         }
+
+        statusClass.set_Ansage_Matrix(spielmodusMatrix)
+        calc.createTextView()
     }
 
     private fun angesagt(selectedCart: ImageButton){
@@ -128,10 +145,34 @@ class Ansage {
             1 -> R.drawable.ansage_angesagt
             else -> null
         }
+
+        spielmodusMatrix[2][1] = statusAngesagt
+
         if (image != null){
             selectedCart.setImageResource(image)
         }
+
+        statusClass.set_Ansage_Matrix(spielmodusMatrix)
+        calc.createTextView()
     }
+
+    //Setzt Matrix auf das, was geklickt wurde + übergibt statusClasse + Aktuallisiert TextView
+    private fun clicked(x: Int): Boolean{
+        if (ansagegeklickt[1][x-1] == 0) {
+            //justOnGameOption()
+            ansagegeklickt[1][x-1] = 1
+            statusClass.set_Ansage_Matrix(ansagegeklickt)
+            calc.createTextView()
+            return true
+
+        } else {
+            ansagegeklickt [1][x-1] = 0
+            statusClass.set_Ansage_Matrix(ansagegeklickt)
+            calc.createTextView()
+            return false
+        }
+    }
+
 /*
     private fun animationSelectedAnsage(selectedCart: ImageButton, x:Int){
         val animationAnsageIn = AnimationUtils.loadAnimation(context,R.anim.fade_in)
@@ -209,27 +250,12 @@ class Ansage {
 
  */
 
-    //Setzt Matrix auf das, was geklickt wurde + übergibt statusClasse + Aktuallisiert TextView
-    private fun clicked(x: Int): Boolean{
-        if (ansagegeklickt[1][x-1] == 0) {
-            justOnGameOption()
-            ansagegeklickt[1][x-1] = 1
-            statusClass.set_Ansage_Matrix(ansagegeklickt)
-            calc.createTextView()
-            return true
 
-        } else {
-            ansagegeklickt [1][x-1] = 0
-            statusClass.set_Ansage_Matrix(ansagegeklickt)
-            calc.createTextView()
-            return false
-        }
-    }
-
+/*
     private fun justOnGameOption(){
         for (i in 0..5){
             ansagegeklickt[1][i]=0
         }
     }
-
+ */
 }

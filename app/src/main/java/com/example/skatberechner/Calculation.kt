@@ -60,15 +60,56 @@ class Calculation {
         }
 
         gamex = detextion_Gamemode()
-        ansa = detextion_Ansage()
+        //ansa = detextion_Ansage() such was anderes
 
-        var result = mitx * (gamex+ansa)
+        ansa = calculationAnsageWert()
+
+        var result = (mitx+ansa) * gamex
 
         if(gamex == 1){
             return "--"
         }
 
         return result.toString()
+    }
+
+    private fun calculationAnsageWert(): Int{
+        var wert = when(Ansage_Matrix[0][1]){
+            0 -> 0
+            1 -> 1
+            2 -> 2
+            3 -> 6
+            else -> null
+        }
+
+//angesagt
+        var x = Ansage_Matrix[-1][1]
+        if (x == 1 && (wert != 6 && wert != 0)){
+            if (wert != null) {
+                wert = wert*2
+            }
+        }
+
+//hand
+        if(Ansage_Matrix[1][1] == 1 && (wert != 6)){
+            if (wert != null) {
+                wert = wert+1
+            }
+        }
+
+        return wert!!
+
+    /*
+        if (wert == 0){
+            return 0
+        }else if (wert == 1){
+            return wert
+        } else if (wert == 2){
+            return 2
+        }else if(wert == 6)
+        return 0
+
+ */
     }
 
 
