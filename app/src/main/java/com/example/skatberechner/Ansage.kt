@@ -22,9 +22,11 @@ class Ansage {
     var ansageKeine: ImageButton
     var ansageHand: ImageButton
     var ansageOuvert: ImageButton
-    var ansageSchneider: ImageButton
-    var ansageSchwarz: ImageButton
+    //var ansageSchneider: ImageButton
+    //var ansageSchwarz: ImageButton
     var angesagtangesagt: ImageButton
+
+    var statusKeineSchneiderSchwarz: Int = 0
 
     constructor(activity: MainActivity, context: Context, statusClass: StatusClass){
         this.activity = activity
@@ -34,12 +36,19 @@ class Ansage {
         ansageKeine = activity.findViewById<ImageButton>(R.id.KeineAnsage)
         ansageHand = activity.findViewById<ImageButton>(R.id.HandAnsage)
         ansageOuvert = activity.findViewById<ImageButton>(R.id.OuverteAnsage)
-        ansageSchneider = activity.findViewById<ImageButton>(R.id.SchneiderAnsage)
-        ansageSchwarz = activity.findViewById<ImageButton>(R.id.SchwarzAnsage)
+        //ansageSchneider = activity.findViewById<ImageButton>(R.id.SchneiderAnsage)
+        //ansageSchwarz = activity.findViewById<ImageButton>(R.id.SchwarzAnsage)
         angesagtangesagt = activity.findViewById(R.id.AnsageAnsage)
 
         ansageKeine.setOnClickListener {
-            animationSelectedAnsage(ansageKeine,1)
+            //animationSelectedAnsage(ansageKeine,1)
+            if(statusKeineSchneiderSchwarz <2){
+                statusKeineSchneiderSchwarz++
+                keineSchneiderSchwarz(ansageKeine)
+            }else{
+                statusKeineSchneiderSchwarz = 0
+                keineSchneiderSchwarz(ansageKeine)
+            }
         }
 
         ansageHand.setOnClickListener {
@@ -49,12 +58,14 @@ class Ansage {
         ansageOuvert.setOnClickListener {
             animationSelectedAnsage(ansageOuvert,3)
         }
-        ansageSchneider.setOnClickListener {
+       /* ansageSchneider.setOnClickListener {
             animationSelectedAnsage(ansageSchneider,4)
         }
         ansageSchwarz.setOnClickListener {
             animationSelectedAnsage(ansageSchwarz,5)
         }
+
+        */
 
         angesagtangesagt.setOnClickListener {
             animationSelectedAnsage(angesagtangesagt,6)
@@ -62,6 +73,19 @@ class Ansage {
 
         var calc = Calculation(activity, statusClass)
         this.calc = calc
+    }
+//ist nicht rassistisch, sondern nur die Feldnamen xD
+    private fun keineSchneiderSchwarz(selectedCart: ImageButton){
+        var image = when(statusKeineSchneiderSchwarz){
+            0 -> R.drawable.ansage_keine
+            1 -> R.drawable.schneider_ansage
+            2 -> R.drawable.schwarz_ansage
+            else -> null
+        }
+
+        if(image != null){
+            selectedCart.setImageResource(image)
+        }
     }
 
     private fun animationSelectedAnsage(selectedCart: ImageButton, x:Int){
@@ -83,8 +107,8 @@ class Ansage {
                 1 -> ansageKeine
                 2 -> ansageHand
                 3 -> ansageOuvert
-                4 -> ansageSchneider
-                5 -> ansageSchwarz
+                //4 -> ansageSchneider
+                //5 -> ansageSchwarz
                 6 -> angesagtangesagt
                 else -> null
             }
@@ -109,8 +133,8 @@ class Ansage {
                 1 -> R.drawable.ansage_keine
                 2 -> R.drawable.ansage_hand
                 3 -> R.drawable.ansage_ouvert
-                4 -> R.drawable.schneider_ansage
-                5 -> R.drawable.schwarz_ansage
+                //4 -> R.drawable.schneider_ansage
+                //5 -> R.drawable.schwarz_ansage
                 6 -> R.drawable.ansage_angesagt
                 else -> null
             }
@@ -124,8 +148,8 @@ class Ansage {
                 1 -> R.drawable.ansage_keine_dunkel
                 2 -> R.drawable.ansage_hand_dunkel
                 3 -> R.drawable.ansage_ouvert_dunkel
-                4 -> R.drawable.schneider_ansage_dunkel
-                5 -> R.drawable.schwarz_ansage_dunkel
+                //4 -> R.drawable.schneider_ansage_dunkel
+                //5 -> R.drawable.schwarz_ansage_dunkel
                 6 -> R.drawable.ansage_angesagt_dunkel
                 else -> null
             }
