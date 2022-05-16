@@ -27,6 +27,7 @@ class Ansage {
     var angesagtangesagt: ImageButton
 
     var statusKeineSchneiderSchwarz: Int = 0
+    var statusHandOuvert: Int = 0
 
     constructor(activity: MainActivity, context: Context, statusClass: StatusClass){
         this.activity = activity
@@ -52,7 +53,14 @@ class Ansage {
         }
 
         ansageHand.setOnClickListener {
-            animationSelectedAnsage(ansageHand,2)
+            //animationSelectedAnsage(ansageHand,2)
+            if(statusHandOuvert < 2){
+                statusHandOuvert++
+                handOuvert(ansageHand)
+            }else{
+                statusHandOuvert = 0
+                handOuvert(ansageHand)
+            }
         }
 
         ansageOuvert.setOnClickListener {
@@ -80,6 +88,19 @@ class Ansage {
             0 -> R.drawable.ansage_keine
             1 -> R.drawable.schneider_ansage
             2 -> R.drawable.schwarz_ansage
+            else -> null
+        }
+
+        if(image != null){
+            selectedCart.setImageResource(image)
+        }
+    }
+
+    private fun handOuvert(selectedCart: ImageButton){
+        var image = when(statusHandOuvert){
+            0 -> R.drawable.ansage_hand_dunkel
+            1 -> R.drawable.ansage_hand
+            2 -> R.drawable.ansage_ouvert
             else -> null
         }
 

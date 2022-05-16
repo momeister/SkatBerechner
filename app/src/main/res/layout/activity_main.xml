@@ -193,13 +193,13 @@
 
         <RelativeLayout
             android:id="@+id/relativeLayout3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="413dp"
+            android:layout_height="59dp"
             android:layout_marginBottom="239dp"
             app:layout_constraintBottom_toTopOf="@+id/ReizView"
             app:layout_constraintTop_toBottomOf="@+id/ansage"
             app:layout_constraintVertical_bias="0.0"
-            tools:layout_editor_absoluteX="59dp">
+            tools:layout_editor_absoluteX="-2dp">
 
                 <androidx.constraintlayout.utils.widget.ImageFilterButton
                     android:id="@+id/KeineAnsage"
@@ -230,18 +230,15 @@
                     android:src="@drawable/ansage_hand_dunkel"></androidx.constraintlayout.utils.widget.ImageFilterButton>
 
                 <androidx.constraintlayout.utils.widget.ImageFilterButton
-                    android:id="@+id/OuverteAnsage"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="286dp"
-                    android:layout_marginTop="18dp"
-                    android:layout_marginEnd="0dp"
+                    android:id="@+id/AnsageAnsage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:layout_marginStart="293dp"
+                    android:layout_marginEnd="-2dp"
                     android:background="#848484"
                     android:contentDescription="@string/app_name"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/ansage_ouvert_dunkel"></androidx.constraintlayout.utils.widget.ImageFilterButton>
+                    android:src="@drawable/ansage_angesagt_dunkel"></androidx.constraintlayout.utils.widget.ImageFilterButton>
 
 
         </RelativeLayout>
@@ -254,19 +251,6 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/relativeLayout3">
-
-                <androidx.constraintlayout.utils.widget.ImageFilterButton
-                    android:id="@+id/AnsageAnsage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="38dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="290dp"
-                    android:layout_marginEnd="1dp"
-                    android:background="#848484"
-                    android:contentDescription="@string/app_name"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/ansage_angesagt_dunkel"></androidx.constraintlayout.utils.widget.ImageFilterButton>
 
 
         </RelativeLayout>
