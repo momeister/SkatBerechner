@@ -66,13 +66,34 @@ class Calculation {
 
         ansa = calculationAnsageWert()
 
-        var result = (mitx+ansa) * gamex
+        if(gamex != 44) {
+            var result = (mitx + ansa) * gamex
+            return result.toString()
+        }
+
+        if(gamex == 44){
+            var nullgame = 23
+            if(statusClass.get_Hand()){
+                if (statusClass.get_Ouvert()){
+                    nullgame = 59
+                    return nullgame.toString()
+                }else{
+                    nullgame = 35
+                    return nullgame.toString()
+                }
+            }
+            if(statusClass.get_Ouvert()){
+                nullgame = 46
+                return nullgame.toString()
+            }
+            return nullgame.toString()
+        }
 
         if(gamex == 1){
             return "--"
         }
 
-        return result.toString()
+        return "--"
     }
 
     private fun calculationAnsageWert(): Int{
@@ -135,14 +156,20 @@ class Calculation {
     private fun detextion_Gamemode():Int{
         var i: Int = 0
         var gamex:Int = 12
+        var nullgame:Int = 0
 
         while (Gamemode_Matrix[1][i] == 0) {
             gamex--
             i++
             if(i == 5){
                 gamex = 1
+                nullgame = 1
                 break
             }
+        }
+
+        if(nullgame == 1){
+            gamex = 44
         }
 
         if(gamex == 8){

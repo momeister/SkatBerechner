@@ -17,6 +17,8 @@ class StatusClass {
     )
 
     private var angesagt = 0
+    private var hand = false
+    private var ouvert = false
 
     fun get_Buben_Matrix() : Array<Array<Int>>{
         return BubenMatrix
@@ -43,6 +45,18 @@ class StatusClass {
     }
     fun set_Ansage(angesagt:Int){
         this.angesagt = angesagt
+    }
+    fun set_Hand(hand: Boolean){
+        this.hand = hand
+    }
+    fun get_Hand():Boolean{
+        return hand
+    }
+    fun set_Ouvert(hand: Boolean){
+        this.hand = hand
+    }
+    fun get_Ouvert():Boolean{
+        return hand
     }
 
 }

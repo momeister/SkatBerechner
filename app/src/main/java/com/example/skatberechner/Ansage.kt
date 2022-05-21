@@ -100,7 +100,7 @@ class Ansage {
         var calc = Calculation(activity, statusClass)
         this.calc = calc
     }
-//ist nicht rassistisch, sondern nur die Feldnamen xD
+//Ouvert is part of it
     private fun keineSchneiderSchwarz(selectedCart: ImageButton){
         var image = when(statusKeineSchneiderSchwarz){
             0 -> R.drawable.ansage_keine
@@ -111,6 +111,11 @@ class Ansage {
         }
 
         spielmodusMatrix[0][1] = statusKeineSchneiderSchwarz
+        if (image == 3){
+            statusClass.set_Ouvert(true)
+        }else{
+            statusClass.set_Ouvert(false)
+        }
 
         if(image != null){
             selectedCart.setImageResource(image)
@@ -131,7 +136,11 @@ class Ansage {
         }
 
         spielmodusMatrix[1][1] = statusHandOuvert
-
+        if(image == 1) {
+            statusClass.set_Hand(true)
+        }else{
+            statusClass.set_Hand(false)
+        }
         if(image != null){
             selectedCart.setImageResource(image)
         }
