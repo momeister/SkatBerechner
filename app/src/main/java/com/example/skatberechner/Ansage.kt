@@ -116,7 +116,7 @@ class Ansage {
             selectedCart.setImageResource(image)
         }
 
-        //statusClass.set_Ansage(spielmodusMatrix[2][1])
+        statusClass.set_Ansage(spielmodusMatrix[1][2])
         statusClass.set_Ansage_Matrix(spielmodusMatrix)
         calc.createTextView()
 
@@ -136,7 +136,7 @@ class Ansage {
             selectedCart.setImageResource(image)
         }
 
-        //statusClass.set_Ansage(spielmodusMatrix[2][1])
+        statusClass.set_Ansage(spielmodusMatrix[1][2])
         statusClass.set_Ansage_Matrix(spielmodusMatrix)
         calc.createTextView()
     }
@@ -148,18 +148,19 @@ class Ansage {
             else -> null
         }
 
-        spielmodusMatrix[2][1] = statusAngesagt
+         spielmodusMatrix[1][2] = statusAngesagt
 
         if (image != null){
             selectedCart.setImageResource(image)
         }
 
-        //statusClass.set_Ansage(spielmodusMatrix[2][1])
+        statusClass.set_Ansage(spielmodusMatrix[1][2])
         statusClass.set_Ansage_Matrix(spielmodusMatrix)
         calc.createTextView()
     }
 
     //Setzt Matrix auf das, was geklickt wurde + übergibt statusClasse + Aktuallisiert TextView
+    /*
     private fun clicked(x: Int): Boolean{
         if (ansagegeklickt[1][x-1] == 0) {
             //justOnGameOption()
@@ -175,6 +176,8 @@ class Ansage {
             return false
         }
     }
+
+     */
 
 /*
     private fun animationSelectedAnsage(selectedCart: ImageButton, x:Int){

@@ -62,7 +62,7 @@ class Calculation {
         }
 
         gamex = detextion_Gamemode()
-        //ansa = detextion_Ansage() such was anderes
+        //ansa = detextion_Ansage() //such was anderes
 
         ansa = calculationAnsageWert()
 
