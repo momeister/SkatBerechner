@@ -52,11 +52,11 @@ class StatusClass {
     fun get_Hand():Boolean{
         return hand
     }
-    fun set_Ouvert(hand: Boolean){
-        this.hand = hand
+    fun set_Ouvert(ouvert: Boolean){
+        this.ouvert = ouvert
     }
     fun get_Ouvert():Boolean{
-        return hand
+        return ouvert
     }
 
 }

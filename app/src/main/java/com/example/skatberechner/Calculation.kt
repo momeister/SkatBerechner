@@ -72,9 +72,11 @@ class Calculation {
         }
 
         if(gamex == 44){
+            var ouvertgame = statusClass.get_Ouvert()
+            var handgame = statusClass.get_Hand()
             var nullgame = 23
-            if(statusClass.get_Hand()){
-                if (statusClass.get_Ouvert()){
+            if(handgame){
+                if (ouvertgame){
                     nullgame = 59
                     return nullgame.toString()
                 }else{
@@ -82,7 +84,7 @@ class Calculation {
                     return nullgame.toString()
                 }
             }
-            if(statusClass.get_Ouvert()){
+            if(ouvertgame){
                 nullgame = 46
                 return nullgame.toString()
             }

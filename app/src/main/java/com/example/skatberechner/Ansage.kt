@@ -111,7 +111,7 @@ class Ansage {
         }
 
         spielmodusMatrix[0][1] = statusKeineSchneiderSchwarz
-        if (image == 3){
+        if (statusKeineSchneiderSchwarz == 3){
             statusClass.set_Ouvert(true)
         }else{
             statusClass.set_Ouvert(false)
@@ -136,7 +136,7 @@ class Ansage {
         }
 
         spielmodusMatrix[1][1] = statusHandOuvert
-        if(image == 1) {
+        if(statusHandOuvert == 1) {
             statusClass.set_Hand(true)
         }else{
             statusClass.set_Hand(false)
