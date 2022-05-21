@@ -5,7 +5,6 @@ import org.w3c.dom.Text
 
 class Calculation {
 
-    var highestReizNumber = 0
     var activity: MainActivity
 
     private var statusClass: StatusClass
@@ -66,6 +65,10 @@ class Calculation {
 
         ansa = calculationAnsageWert()
 
+        if(gamex == 1){
+            return "--"
+        }
+
         if(gamex != 44) {
             var result = (mitx + ansa) * gamex
             return result.toString()
@@ -91,9 +94,7 @@ class Calculation {
             return nullgame.toString()
         }
 
-        if(gamex == 1){
-            return "--"
-        }
+
 
         return "--"
     }
@@ -163,19 +164,24 @@ class Calculation {
         while (Gamemode_Matrix[1][i] == 0) {
             gamex--
             i++
-            if(i == 5){
+
+
+            if(i == 6){
                 gamex = 1
-                nullgame = 1
+                //nullgame = 1
                 break
             }
         }
 
-        if(nullgame == 1){
-            gamex = 44
-        }
+       // if(gamex == 7){
+         //   gamex = 44
+        //}
 
         if(gamex == 8){
             gamex = 24
+        }
+        if(gamex == 7){
+            gamex = 44
         }
 
         return gamex
